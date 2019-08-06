@@ -2,6 +2,7 @@ package com.hars.learning.model;
 
 import com.mongodb.lang.NonNull;
 import org.springframework.data.annotation.Id;
+import org.springframework.data.mongodb.core.index.Indexed;
 import org.springframework.data.mongodb.core.mapping.Document;
 
 import java.util.Objects;
@@ -12,6 +13,7 @@ public class Container {
     private String id;
 
     @NonNull
+    @Indexed(name = "name_index", unique = true)
     private String name;
 
     public Container(String name) {

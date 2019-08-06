@@ -17,13 +17,15 @@ public class MainApplication {
         );
     }
 
-    @Bean
-    CommandLineRunner initContainer(ContainerRepository repository){
-		return args -> {
-			Flux<Container> containerFlux =Flux.just(
-					new Container("container1")
-			).flatMap(repository::save);
-			containerFlux.thenMany(repository.findAll()).subscribe(System.out::println);
-		};
-	}
+//    @Bean
+//    CommandLineRunner initContainer(ContainerRepository repository){
+//		return args -> {
+//			Flux<Container> containerFlux =Flux.just(
+//					new Container("container1"),
+//					new Container("container1"),
+//					new Container("container2")
+//			).flatMap(repository::save);
+//			containerFlux.thenMany(repository.findAll()).subscribe(System.out::println);
+//		};
+//	}
 }
